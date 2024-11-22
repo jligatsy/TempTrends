@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #87ceeb, #ffffff);
+    color: #333;
+  }
+  
+  header {
+    text-align: center;
+    padding: 20px;
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  header .search {
+    margin-top: 10px;
+  }
+  
+  header input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  header button {
+    padding: 10px 15px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  header button:hover {
+    background-color: #555;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  section {
+    margin-bottom: 20px;
+  }
+  
+  #weatherDetails {
+    background: #f9f9f9;
+    border-radius: 5px;
+    padding: 15px;
+  }
+  
+  #weatherIcon {
+    display: block;
+    margin: 10px auto;
+    width: 100px;
+    height: 100px;
+  }
+  
+  #outfitSuggestions {
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 5px;
+  }
+  

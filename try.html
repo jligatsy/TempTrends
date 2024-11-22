@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Wardrobe Assistant</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Weather Wardrobe Assistant</h1>
+    <div class="search">
+      <input type="text" id="location" placeholder="Enter city name">
+      <button id="getWeather">Get Weather</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="weather">
+      <h2>Weather in <span id="city"></span>, <span id="country"></span></h2>
+      <div id="weatherDetails">
+        <p><strong>Temperature:</strong> <span id="temperature"></span>°C</p>
+        <p><strong>Feels like:</strong> <span id="feels_like"></span>°C</p>
+        <p><strong>Condition:</strong> <span id="description"></span></p>
+        <p><strong>Wind Speed:</strong> <span id="wind_speed"></span> m/s</p>
+        <p><strong>Humidity:</strong> <span id="humidity"></span>%</p>
+        <p><strong>Sunrise:</strong> <span id="sunrise"></span></p>
+        <p><strong>Sunset:</strong> <span id="sunset"></span></p>
+      </div>
+      <img id="weatherIcon" alt="Weather Icon" />
+    </section>
+
+    <section id="outfit">
+      <h2>Recommended Outfit</h2>
+      <div id="outfitSuggestions"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2024 Weather Wardrobe Assistant</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
