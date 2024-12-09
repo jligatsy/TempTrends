@@ -16,23 +16,33 @@
   </header>
 
   <main>
+    <!-- Category Selection -->
+    <section id="categorySelection">
+      <h2>Select a Category</h2>
+      <label for="category">Category:</label>
+      <select id="category">
+        <option value="business">Business</option>
+        <option value="casual">Casual</option>
+        <option value="athletic">Athletic</option>
+        <option value="stayAtHomeMom">Stay-at-Home Mom</option>
+        <option value="kids">Kids</option>
+      </select>
+    </section>
+
+    <!-- Weather Details -->
     <section id="weather">
       <h2>Weather in <span id="city"></span>, <span id="country"></span></h2>
       <div id="weatherDetails">
-        <p><strong>Temperature:</strong> <span id="temperature"></span>°C</p>
-        <p><strong>Feels like:</strong> <span id="feels_like"></span>°C</p>
+        <p><strong>Temperature:</strong> <span id="temperature"></span></p>
+        <p><strong>Feels like:</strong> <span id="feels_like"></span></p>
         <p><strong>Condition:</strong> <span id="description"></span></p>
-        <p><strong>Wind Speed:</strong> <span id="wind_speed"></span> m/s</p>
-        <p><strong>Humidity:</strong> <span id="humidity"></span>%</p>
-        <p><strong>Sunrise:</strong> <span id="sunrise"></span></p>
-        <p><strong>Sunset:</strong> <span id="sunset"></span></p>
       </div>
-      <img id="weatherIcon" alt="Weather Icon" />
     </section>
 
+    <!-- Outfit Suggestions -->
     <section id="outfit">
       <h2>Recommended Outfit</h2>
-      <div id="outfitSuggestions"></div>
+      <p id="outfitSuggestions"></p>
     </section>
   </main>
 
@@ -43,3 +53,4 @@
   <script src="app.js"></script>
 </body>
 </html>
+
