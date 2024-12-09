@@ -1,65 +1,128 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(to bottom, #87ceeb, #ffffff);
-    color: #333;
-  }
-  
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #87ceeb, #ffffff);
+  color: #333;
+}
+
+h1, h2 {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  color: #333;
+}
+
+p {
+  margin: 5px 0;
+}
+
+a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Header Section */
+header {
+  text-align: center;
+  padding: 20px;
+  background-color: #4CAF50;
+  color: white;
+}
+
+header .search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header input, header button {
+  padding: 10px;
+  margin: 5px;
+  font-size: 1rem;
+  width: 90%;
+  max-width: 400px;
+}
+
+header button {
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+header button:hover {
+  background-color: #555;
+}
+
+/* Main Content */
+main {
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+  margin-bottom: 10px;
+}
+
+#weatherDetails p, #outfit p {
+  font-size: 1.1rem;
+  margin: 5px 0;
+}
+
+/* Outfit Suggestions */
+#outfitSuggestions {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  text-align: center;
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+/* Footer Section */
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #333;
+  color: white;
+  font-size: 0.9rem;
+}
+
+/* Responsive Design for Smaller Screens */
+@media screen and (max-width: 600px) {
   header {
-    text-align: center;
-    padding: 20px;
-    background-color: #4CAF50;
-    color: white;
-  }
-  
-  header .search {
-    margin-top: 10px;
-  }
-  
-  header input {
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
   }
-  
-  header button {
-    padding: 10px 15px;
-    background-color: #333;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+
+  header input, header button {
+    width: 100%; /* Ensure inputs/buttons take up full width on small screens */
   }
-  
-  header button:hover {
-    background-color: #555;
-  }
-  
-  main {
-    padding: 20px;
-  }
-  
+
   section {
-    margin-bottom: 20px;
-  }
-  
-  #weatherDetails {
-    background: #f9f9f9;
-    border-radius: 5px;
-    padding: 15px;
-  }
-  
-  #weatherIcon {
-    display: block;
-    margin: 10px auto;
-    width: 100px;
-    height: 100px;
-  }
-  
-  #outfitSuggestions {
+    margin-bottom: 15px;
     padding: 10px;
-    background: #f9f9f9;
-    border-radius: 5px;
   }
+
+  #weatherDetails, #categorySelection {
+    text-align: center;
+  }
+
+  #outfitSuggestions {
+    font-size: 1rem;
+  }
+}
+
   
