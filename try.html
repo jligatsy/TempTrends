@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather Wardrobe Assistant</title>
   <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
-    <h1>Weather Wardrobe Assistant</h1>
+    <h1>🌡️Temp-Trends☁️</h1> 
     <div class="search">
       <input type="text" id="location" placeholder="Enter city name">
       <button id="getWeather">Get Weather</button>
@@ -19,6 +20,7 @@
     <!-- Category Selection -->
     <section id="categorySelection">
       <h2>Select a Category</h2>
+      <div class="category-container">
       <label for="category">Category:</label>
       <select id="category">
         <option value="business">Business</option>
@@ -27,11 +29,12 @@
         <option value="stayAtHomeMom">Stay-at-Home Mom</option>
         <option value="kids">Kids</option>
       </select>
+    </div>
     </section>
 
     <!-- Weather Details -->
     <section id="weather">
-      <h2>Weather in <span id="city"></span>, <span id="country"></span></h2>
+      <h2>Weather in <span id="city"></span> <span id="country"></span></h2>
       <div id="weatherDetails">
         <p><strong>Temperature:</strong> <span id="temperature"></span></p>
         <p><strong>Feels like:</strong> <span id="feels_like"></span></p>
@@ -47,10 +50,11 @@
   </main>
 
   <footer>
-    <p>© 2024 Weather Wardrobe Assistant</p>
+    <p>© 2024 Temp-Trends</p>
   </footer>
 
   <script src="app.js"></script>
 </body>
 </html>
+
 
