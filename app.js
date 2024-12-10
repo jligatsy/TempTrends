@@ -1,6 +1,8 @@
 const API_KEY = 'e8d47242d044665cf81b3649df11fb18';
 
-// Outfit suggestions from the Excel sheet
+let currentTemperature = null;
+
+// outfit suggestions from A4 google sheet
 const outfitMapping = {
   business: [
     { tempRange: [0, 50], suggestion: "Suit/Blazer, Scarf, Overcoat, Leather Shoes" },
@@ -29,7 +31,7 @@ const outfitMapping = {
   ],
 };
 
-
+// function to call displayWeather and suggestOutfit or error message 
 document.getElementById('getWeather').addEventListener('click', async () => {
   const city = document.getElementById('location').value;
   if (!city) return alert('Please enter a city name');
@@ -37,14 +39,24 @@ document.getElementById('getWeather').addEventListener('click', async () => {
   try {
     const weather = await fetchWeather(city);
     displayWeather(weather);
-    suggestOutfit(weather.main.temp); // Pass the temperature to suggestOutfit
+    currentTemperature = weather.main.temp;
+    suggestOutfit(); 
   } catch (error) {
     console.error(error.message);
-    alert('Could not fetch weather. Please try again.');
+    alert('That city is unrecognizable. Please try again.');
   }
 });
 
-// Fetch weather data from OpenWeatherMap
+// function to call suggestOutfit or error message 
+document.getElementById('updateCategory').addEventListener('click', () => {
+  if (currentTemperature === null) {
+    alert('Please get the weather first!');
+    return;
+  }
+  suggestOutfit(); 
+});
+
+// fetching weather data from OpenWeatherMap
 async function fetchWeather(city) {
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${API_KEY}`;
   const response = await fetch(url);
@@ -52,26 +64,42 @@ async function fetchWeather(city) {
   return await response.json();
 }
 
-// Display weather details dynamically on the webpage
+// function to display weather details dynamically on the webpage
 function displayWeather(weather) {
   document.getElementById('city').textContent = weather.name;
   document.getElementById('country').textContent = weather.sys.country;
   document.getElementById('temperature').textContent = `${weather.main.temp}°F`;
   document.getElementById('feels_like').textContent = `${weather.main.feels_like}°F`;
   document.getElementById('description').textContent = weather.weather[0].description;
+  document.getElementById('wind_speed').textContent = weather.wind.speed;
+  document.getElementById('humidity').textContent = weather.main.humidity;
+  document.getElementById('sunrise').textContent = new Date(weather.sys.sunrise * 1000).toLocaleTimeString();
+  document.getElementById('sunset').textContent = new Date(weather.sys.sunset * 1000).toLocaleTimeString();
+  document.getElementById('weather').style.display = 'block';
+
+  // function to display the weather icon
+  const weatherIcon = document.getElementById('weatherIcon');
+  const iconCode = weather.weather[0].icon; 
+  weatherIcon.src = `https://openweathermap.org/img/wn/${iconCode}@2x.png`; 
+  weatherIcon.alt = weather.weather[0].description; 
+  weatherIcon.style.display = 'block'; // toggle to make icon visible? 
 }
 
-// Suggest outfit based on temperature and selected category
-function suggestOutfit(temp) {
-  // Get the selected category
+
+// function to suggest outfit based on temperature and selected category
+function suggestOutfit() {
   const category = document.getElementById("category").value;
-
-  // Find the appropriate suggestion based on the temperature
   const suggestions = outfitMapping[category];
-  const suggestion = suggestions.find(range => temp >= range.tempRange[0] && temp <= range.tempRange[1]);
+  const suggestion = suggestions.find(range => currentTemperature >= range.tempRange[0] && currentTemperature <= range.tempRange[1]);
+  const outfitList = document.getElementById('outfitSuggestions');
+  outfitList.innerHTML = ''; // clear any existing suggestions? 
+  // split the suggestion into individual items (assuming comma-separated)
+  const items = suggestion.suggestion.split(', ');
 
-  // Display the suggestion on the webpage
-  document.getElementById('outfitSuggestions').textContent = 
-    suggestion ? `Suggested Outfit: ${suggestion.suggestion}` : "No suggestion available for this temperature.";
+  // create a list item for each outfit item and append it to the list
+  items.forEach(item => {
+  const listItem = document.createElement('li');
+  listItem.textContent = item;
+  outfitList.appendChild(listItem);
+    });
 }
-
