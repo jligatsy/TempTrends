@@ -7,7 +7,13 @@ body {
   color: #333;
 }
 
-h1, h2 {
+h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3rem;
+  color: #ed979b;
+} 
+
+h2 {
   margin: 0;
   padding: 0;
   text-align: center;
@@ -19,7 +25,7 @@ p {
 }
 
 a {
-  color: #4CAF50;
+  color: #a5d3a6;
   text-decoration: none;
 }
 
@@ -31,7 +37,7 @@ a:hover {
 header {
   text-align: center;
   padding: 20px;
-  background-color: #4CAF50;
+  background-color: #a5d3a6;
   color: white;
 }
 
@@ -74,6 +80,26 @@ section {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+.category-container {
+  display: flex;
+  align-items: center; /* Vertically align items */
+  justify-content: center; /* Horizontally align items */
+  gap: 10px; /* Add space between the label and dropdown */
+  margin-top: 10px;
+}
+
+.category-container label {
+  font-size: 1.2rem; /* Optional: Adjust label font size */
+}
+
+.category-container select {
+  padding: 5px 10px;
+  font-size: 1rem;
+  border-radius: 5px; /* Optional: Add rounded corners */
+  border: 1px solid #ccc;
+}
+
+
 section h2 {
   margin-bottom: 10px;
 }
@@ -88,7 +114,7 @@ section h2 {
   font-size: 1.2rem;
   margin-top: 10px;
   text-align: center;
-  color: #4CAF50;
+  color: #a5d3a6;
   font-weight: bold;
 }
 
