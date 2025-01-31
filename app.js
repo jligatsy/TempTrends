@@ -1,4 +1,4 @@
-const API_KEY = 'e8d47242d044665cf81b3649df11fb18';
+const API_KEY = 'XXX';
 
 let currentTemperature = null;
 
